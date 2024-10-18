@@ -5,10 +5,7 @@ export default defineNuxtConfig({
   future: { compatibilityVersion: 4 },
 
   // https://nuxt.com/modules
-  modules: [
-    '@nuxthub/core',
-    '@nuxt/eslint'
-  ],
+  modules: ['@nuxthub/core', '@nuxt/eslint', '@nuxtjs/tailwindcss'],
 
   // https://hub.nuxt.com/docs/getting-started/installation#options
   hub: {},
@@ -31,5 +28,12 @@ export default defineNuxtConfig({
   },
 
   // https://devtools.nuxt.com
-  devtools: { enabled: true }
+  devtools: { enabled: true },
+  css: ['./assets/css/main.css'],
+  postcss: {
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {},
+    },
+  },
 })
