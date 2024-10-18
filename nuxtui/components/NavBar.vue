@@ -1,21 +1,23 @@
 <template>
-  <nav class="bg-gray-800 p-4">
-    <ul class="flex space-x-4">
-      <li>
-        <router-link to="/" class="text-white hover:text-gray-400">
-          Home
-        </router-link>
-      </li>
-      <li>
-        <router-link to="/" class="text-white hover:text-gray-400">
-          About
-        </router-link>
-      </li>
-      <li>
-        <router-link to="/" class="text-white hover:text-gray-400">
-          Contact
-        </router-link>
-      </li>
-    </ul>
+  <nav class="bg-blue-600 p-6 shadow-lg">
+    <div class="container mx-auto">
+      <ul class="flex justify-between items-center">
+        <li>
+          <router-link to="/" class="text-white text-lg font-semibold hover:text-gray-200 transition duration-300">
+            Home
+          </router-link>
+        </li>
+        <li>
+          <router-link to="/about" class="text-white text-lg font-semibold hover:text-gray-200 transition duration-300">
+            About
+          </router-link>
+        </li>
+        <li>
+          <router-link to="/contact" class="text-white text-lg font-semibold hover:text-gray-200 transition duration-300">
+            Contact
+          </router-link>
+        </li>
+      </ul>
+    </div>
   </nav>
 </template>
