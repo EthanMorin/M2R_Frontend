@@ -8,7 +8,10 @@ export default defineNuxtConfig({
   modules: ['@nuxthub/core', '@nuxt/eslint', '@nuxtjs/tailwindcss'],
 
   // https://hub.nuxt.com/docs/getting-started/installation#options
-  hub: {},
+  hub: {
+    kv: true
+  },
+
 
   // Env variables - https://nuxt.com/docs/getting-started/configuration#environment-variables-and-private-tokens
   runtimeConfig: {
