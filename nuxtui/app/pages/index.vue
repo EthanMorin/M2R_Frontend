@@ -1,4 +1,11 @@
 <script lang="ts">
+	var Agents = [
+		{
+			id: 1,
+			name: "Adina Morin",
+			image: "https://randomuser.me/api"
+		}
+	];
 </script>
 <template>
 	<!-- Hero Section -->
@@ -69,7 +76,9 @@
 			<h1 class="font-bold text-3xl text-center mb-6">Morin 2 Realty Agents</h1>
 			<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mx-40">
 				<!-- Agent 1 -->
-				<AgentCard/>
+				<div v-for="agent in Agents" :key="agent.id">
+					<CardAgent :agent="agent" />
+				</div>
 				<!-- Agent 2 -->
 				<div class="flex flex-col items-center p-4 border rounded-lg">
 					<!-- Add agent image -->
