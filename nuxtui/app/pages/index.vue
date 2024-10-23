@@ -1,11 +1,26 @@
-<script lang="ts">
-	var Agents = [
+<script setup lang="ts">
+	const agents = ref([
 		{
+			name: "Brandon Morin",
+			img: "https://cdn.chime.me/image/fs/user-info/2023810/9/w600_original_2bf11a11-b748-4f36-813e-e4ddb64fc8e7-png.webp",
+			desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere dolorum sunt pariatur ex deleniti quisquam rem ullam, velit repudiandae sapiente?",
 			id: 1,
-			name: "Adina Morin",
-			image: "https://randomuser.me/api"
-		}
-	];
+		},
+		{
+			name: "Jane Doe",
+			img: "",
+			desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere dolorum sunt pariatur ex deleniti quisquam rem ullam, velit repudiandae sapiente?",
+			id: 2,
+		},
+		{
+			name: "John Smith",
+			img: "",
+			desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere dolorum sunt pariatur ex deleniti quisquam rem ullam, velit repudiandae sapiente?",
+			id: 3,
+		},
+	]);
+
+	const listings = ref([]);
 </script>
 <template>
 	<!-- Hero Section -->
@@ -44,53 +59,34 @@
 
 			<!-- Image Placeholder Section -->
 			<div class="w-full md:w-1/2">
-				<div
-					class="border border-gray-300 rounded-lg w-full h-64 flex items-center justify-center"
-				>
-					<svg
-						class="w-20 h-20 text-gray-200"
-						fill="currentColor"
-						xmlns="http://www.w3.org/2000/svg"
-						viewBox="0 0 24 24"
-					>
-						<path
-							d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2zM9.5 11.5l-3.5 4.5h11l-4-5.5-3 4zm9.5 6H5v-2l4-5.5 3 4L16 9.5 19 17v1.5z"
-						/>
-					</svg>
-				</div>
+				<img
+					class="rounded-xl"
+					src="https://photos.zillowstatic.com/fp/d61ea3a9d530f8b3e90031cbb0fc441e-p_e.jpg"
+				/>
 			</div>
 		</div>
 	</section>
-
-	<!-- Featured Listings Section -->
+	<hr />
+	<!-- Call To Action -->
 	<section>
+		<h1>Let’s Find Your Next Home Together</h1>
+	</section>
+	<hr />
+	<!-- Featured Listings Section -->
+	<section v-if="(listings.length = 0)">
 		<div class="flex flex-col items-center text-center mb-8">
 			<h1 class="font-bold text-3xl">Featured Listings</h1>
 			<p class="text-lg text-gray-500">Display featured listing cards here</p>
 		</div>
+	<hr />
 	</section>
-
 	<!-- Agents section -->
 	<section>
 		<div class="my-12">
 			<h1 class="font-bold text-3xl text-center mb-6">Morin 2 Realty Agents</h1>
 			<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mx-40">
-				<!-- Agent 1 -->
-				<div v-for="agent in Agents" :key="agent.id">
+				<div v-for="agent in agents">
 					<CardAgent :agent="agent" />
-				</div>
-				<!-- Agent 2 -->
-				<div class="flex flex-col items-center p-4 border rounded-lg">
-					<!-- Add agent image -->
-					<div class="w-24 h-24 bg-gray-300 rounded-full mb-4"></div>
-					<h2 class="text-lg font-semibold">Adina Morin</h2>
-				</div>
-
-				<!-- Agent 3 -->
-				<div class="flex flex-col items-center p-4 border rounded-lg">
-					<!-- Add agent image -->
-					<div class="w-24 h-24 bg-gray-300 rounded-full mb-4"></div>
-					<h2 class="text-lg font-semibold">Jake Warnick</h2>
 				</div>
 			</div>
 		</div>

@@ -1,10 +1,10 @@
 <template>
-	<nav class="bg-white py-4 shadow-md">
+	<nav class=" py-4 shadow-md">
 		<div class="container mx-auto flex justify-between items-center">
 			<!-- Logo -->
 			<div>
 				<nuxt-link to="/">
-					<h1 class="h-12">Morin 2 Realty</h1>
+					<img class="w-32" src="/m2r-logo.png" alt="M2R logo">
 				</nuxt-link>
 			</div>
 
@@ -33,7 +33,7 @@
 			<ul class="flex space-x-6 items-center">
 				<li>
 					<nuxt-link
-						to="/listing"
+						to="/listings"
 						class="text-gray-600 hover:text-black"
 						activeClass="text-black font-bold"
 						>Listings</nuxt-link
@@ -67,7 +67,3 @@
 		</div>
 	</nav>
 </template>
-
-<style scoped>
-	/* Custom styles (optional) */
-</style>
