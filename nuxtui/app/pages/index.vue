@@ -1,3 +1,12 @@
+<script lang="ts">
+	var Agents = [
+		{
+			id: 1,
+			name: "Adina Morin",
+			image: "https://randomuser.me/api"
+		}
+	];
+</script>
 <template>
 	<!-- Hero Section -->
 	<section class="bg-white py-8">
@@ -11,9 +20,11 @@
 
 				<!-- Placeholder for paragraph text -->
 				<div class="space-y-2 mb-6">
-					<div class="h-3 w-3/4 bg-gray-200 rounded-full"></div>
-					<div class="h-3 w-1/2 bg-gray-200 rounded-full"></div>
-					<div class="h-3 w-5/6 bg-gray-200 rounded-full"></div>
+					<div class="mr-10">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
+						dolorum sunt pariatur ex deleniti quisquam rem ullam, velit
+						repudiandae sapiente?
+					</div>
 				</div>
 
 				<!-- Buttons -->
@@ -65,12 +76,9 @@
 			<h1 class="font-bold text-3xl text-center mb-6">Morin 2 Realty Agents</h1>
 			<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mx-40">
 				<!-- Agent 1 -->
-				<div class="flex flex-col items-center p-4 border rounded-lg">
-					<!-- Add agent image -->
-					<div class="w-24 h-24 bg-gray-300 rounded-full mb-4"></div>
-					<h2 class="text-lg font-semibold">Brandon Morin</h2>
+				<div v-for="agent in Agents" :key="agent.id">
+					<CardAgent :agent="agent" />
 				</div>
-
 				<!-- Agent 2 -->
 				<div class="flex flex-col items-center p-4 border rounded-lg">
 					<!-- Add agent image -->

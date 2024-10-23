@@ -6,9 +6,9 @@ const FooterBar = defineAsyncComponent(() => import('../components/FooterBar.vue
 </script>
 
 <template>
-  <NuxtRouteAnnouncer />
-  <NuxtLoadingIndicator />
-  <NavBar />
-  <NuxtPage />
-  <FooterBar />
+	<NuxtRouteAnnouncer />
+	<NuxtLoadingIndicator />
+	<NuxtLayout>
+		<NuxtPage />
+	</NuxtLayout>
 </template>
