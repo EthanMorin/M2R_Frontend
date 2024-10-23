@@ -12,9 +12,10 @@ export default defineNuxtConfig({
 
   // Env variables - https://nuxt.com/docs/getting-started/configuration#environment-variables-and-private-tokens
   runtimeConfig: {
+    apiKey: '',
     public: {
       // Can be overridden by NUXT_PUBLIC_HELLO_TEXT environment variable
-      helloText: 'Hello from the Edge 👋'
+      // helloText: 'Hello from the Edge 👋'
     }
   },
 
@@ -36,4 +37,8 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
+
+  alias: {
+    '@': '/<root-directory-path>/src',
+  }
 })
