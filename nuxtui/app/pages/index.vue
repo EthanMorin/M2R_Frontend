@@ -1,5 +1,4 @@
 <script lang="ts">
-const AgentCard = defineAsyncComponent(() => import('../../components/AgentCard.vue'));
 </script>
 <template>
 	<!-- Hero Section -->
