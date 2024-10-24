@@ -30,7 +30,7 @@
 		>
 			<!-- Text and Buttons Section -->
 			<div class="flex flex-col mb-8 md:mb-0">
-				<h1 class="text-3xl font-bold text-gray-800">Morin 2 Realty</h1>
+				<h1 class="text-3xl font-bold text-gray-800">Morin2Realty</h1>
 				<h2 class="text-xl text-gray-500 mb-4">Realtors for You</h2>
 
 				<!-- Placeholder for paragraph text -->
