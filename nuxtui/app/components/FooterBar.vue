@@ -22,7 +22,7 @@
         </nuxt-link>
       </div> -->
       <div class="mt-4">
-        <p>&copy; 2024 Morin 2 Realty</p>
+        <p>&copy; M2R 2024</p>
       </div>
     </div>
   </footer>

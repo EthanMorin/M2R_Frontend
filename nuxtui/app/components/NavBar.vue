@@ -1,10 +1,10 @@
 <template>
-	<nav class=" py-4 shadow-md">
+	<nav class="py-4 shadow-md">
 		<div class="container mx-auto flex justify-between items-center">
 			<!-- Logo -->
 			<div>
 				<nuxt-link to="/">
-					<img class="w-32" src="/m2r-logo.png" alt="M2R logo">
+					<img class="w-32" src="/m2r-logo.png" alt="M2R logo" />
 				</nuxt-link>
 			</div>
 
@@ -52,18 +52,19 @@
 			<!-- Buttons -->
 			<div class="flex space-x-4">
 				<nuxt-link
-					to="/button-page"
+					to="/login"
 					class="border border-gray-400 text-gray-600 py-2 px-4 rounded-full hover:bg-gray-100"
 				>
 					Login
 				</nuxt-link>
 				<nuxt-link
-					to="/contact"
+					to="/register"
 					class="bg-black text-white py-2 px-4 rounded-full hover:bg-gray-800"
 				>
-					Contact An Agent
+					Register
 				</nuxt-link>
 			</div>
 		</div>
 	</nav>
+	<hr />
 </template>

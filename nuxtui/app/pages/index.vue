@@ -7,13 +7,13 @@
 			id: 1,
 		},
 		{
-			name: "Jane Doe",
+			name: "Adina Richards",
 			img: "",
 			desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere dolorum sunt pariatur ex deleniti quisquam rem ullam, velit repudiandae sapiente?",
 			id: 2,
 		},
 		{
-			name: "John Smith",
+			name: "Jake Warnick",
 			img: "",
 			desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere dolorum sunt pariatur ex deleniti quisquam rem ullam, velit repudiandae sapiente?",
 			id: 3,
@@ -57,7 +57,6 @@
 				</div>
 			</div>
 
-			<!-- Image Placeholder Section -->
 			<div class="w-full md:w-1/2">
 				<img
 					class="rounded-xl"
@@ -66,19 +65,39 @@
 			</div>
 		</div>
 	</section>
-	<hr />
+	<Hr />
 	<!-- Call To Action -->
-	<section>
-		<h1>Let’s Find Your Next Home Together</h1>
+	<section class="flex flex-col items-center px-72">
+		<h1 class="font-bold text-3xl text-center mb-6">
+			Let’s Find Your Next Home Together
+		</h1>
+		<p class="mb-6">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, similique
+			magni perferendis obcaecati officia esse quo veritatis dolorum nihil
+			incidunt, officiis rerum cupiditate eveniet alias rem doloremque dolores
+			ducimus distinctio. Lorem ipsum, dolor sit amet consectetur adipisicing
+			elit. Magnam illum fugiat repellat nostrum fuga. Repellendus magni
+			possimus dolor consequuntur magnam dolores sint assumenda quam eveniet
+			facere minus rerum, consectetur explicabo! Lorem ipsum dolor sit amet
+			consectetur adipisicing elit. Consectetur, ratione necessitatibus quos
+			dolorem delectus dolorum earum maiores expedita aspernatur obcaecati
+			dicta, distinctio quis debitis suscipit quisquam ducimus voluptates
+			recusandae vel!
+		</p>
+		<button
+			class="bg-gray-800 text-white font-semibold py-2 px-6 rounded-full hover:bg-gray-900"
+		>
+			Contact Us
+		</button>
 	</section>
-	<hr />
+	<Hr />
 	<!-- Featured Listings Section -->
 	<section v-if="(listings.length = 0)">
 		<div class="flex flex-col items-center text-center mb-8">
 			<h1 class="font-bold text-3xl">Featured Listings</h1>
 			<p class="text-lg text-gray-500">Display featured listing cards here</p>
 		</div>
-	<hr />
+		<Hr />
 	</section>
 	<!-- Agents section -->
 	<section>
