@@ -1,13 +1,20 @@
-<script lang="ts">
+<script setup lang="ts">
 	defineProps<{
-		listing: { price: Float32Array; img: string; listingInfo: string };
+		listing: { price: number; img: string; listingInfo: string };
 	}>();
 </script>
 <template>
-  <div class="flex flex-col items-center p-4 border rounded-lg">
-    <img :src="listing.img" v-if="listing.img != ''" />
-    <div class="w-24 h-24 bg-gray-300 rounded-full mb-4" v-if="listing.img == ''"></div>
-    <h2 class="text-xl font-semibold">{{ listing.price }}</h2>
-    <p class="mx-4 text-center text-lg">{{ listing.listingInfo }}</p>
-  </div>
+	<div class="flex flex-col items-left p-4 border rounded-lg">
+		<img
+			class="rounded-lg w-60 h-64"
+			:src="listing.img"
+			v-if="listing.img != ''"
+		/>
+		<div
+			class="w-60 h-64 bg-gray-300 rounded-full mb-4"
+			v-if="listing.img == ''"
+		></div>
+		<h2 class="mx-4 text-xl font-semibold my-2">${{ listing.price }}</h2>
+		<p class="mx-4 text-lg">{{ listing.listingInfo }}</p>
+	</div>
 </template>

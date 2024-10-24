@@ -33,6 +33,21 @@
 			<ul class="flex space-x-6 items-center">
 				<li>
 					<nuxt-link
+						to="/"
+						class="text-gray-600 hover:text-black"
+						activeClass="text-black font-bold"
+						>Home</nuxt-link
+					>
+				</li>
+				<li>
+					<nuxt-link
+					to="/hotpages"
+					class="text-gray-600 hover:text-black"
+					activeClass="text-black font-bold"
+					>Hot Pages</nuxt-link>
+				</li>
+				<li>
+					<nuxt-link
 						to="/listings"
 						class="text-gray-600 hover:text-black"
 						activeClass="text-black font-bold"

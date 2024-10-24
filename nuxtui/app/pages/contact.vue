@@ -1,5 +1,5 @@
 <template>
-	<div class="flex flex-row">
+	<div class="">
 		<form action="" class="mt-56 mb-96">
 			<div class="flex flex-col items-center">
 				<h1 class="text-3xl font-bold text-gray-800">Contact Us</h1>
