@@ -105,7 +105,7 @@
 			<h1 class="font-bold text-3xl text-center mb-6">Morin 2 Realty Agents</h1>
 			<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mx-40">
 				<div v-for="agent in agents">
-					<CardAgent :agent="agent" />
+					<CardAgent class="drop-shadow-lg" :agent="agent" />
 				</div>
 			</div>
 		</div>
