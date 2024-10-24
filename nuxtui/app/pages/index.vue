@@ -8,7 +8,7 @@
 		},
 		{
 			name: "Adina Richards",
-			img: "",
+			img: "https://cdn.chime.me/image/fs/user-info/2024524/12/w640_original_e2b9baaf-556d-420d-8d0f-f172eddab966-png.webp",
 			desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere dolorum sunt pariatur ex deleniti quisquam rem ullam, velit repudiandae sapiente?",
 			id: 2,
 		},
