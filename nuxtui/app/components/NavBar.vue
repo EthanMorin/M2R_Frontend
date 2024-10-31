@@ -1,3 +1,4 @@
+<script lang="ts" setup></script>
 <template>
 	<nav class="py-4 shadow-md">
 		<div class="container mx-auto flex justify-between items-center">
@@ -41,13 +42,6 @@
 				</li>
 				<li>
 					<nuxt-link
-					to="/hotpages"
-					class="text-gray-600 hover:text-black"
-					activeClass="text-black font-bold"
-					>Hot Pages</nuxt-link>
-				</li>
-				<li>
-					<nuxt-link
 						to="/listings"
 						class="text-gray-600 hover:text-black"
 						activeClass="text-black font-bold"
@@ -65,19 +59,23 @@
 			</ul>
 
 			<!-- Buttons -->
-			<div class="flex space-x-4">
-				<nuxt-link
-					to="/login"
-					class="border border-gray-400 text-gray-600 py-2 px-4 rounded-full hover:bg-gray-100"
-				>
-					Login
-				</nuxt-link>
-				<nuxt-link
-					to="/register"
-					class="bg-black text-white py-2 px-4 rounded-full hover:bg-gray-800"
-				>
-					Register
-				</nuxt-link>
+			<div class="flex">
+				<div class="flex space-x-4 mr-6">
+					<nuxt-link
+						to="/register"
+						class="bg-black text-white py-2 px-4 rounded-full hover:bg-gray-800"
+					>
+						Register
+					</nuxt-link>
+				</div>
+				<div class="flex space-x-4">
+					<nuxt-link
+						to="/login"
+						class="bg-black text-white py-2 px-4 rounded-full hover:bg-gray-800"
+					>
+						Login
+					</nuxt-link>
+				</div>
 			</div>
 		</div>
 	</nav>

@@ -21,6 +21,7 @@
   },
   "devDependencies": {
     "@nuxt/eslint-config": "^0.5.7",
+    "@nuxtjs/supabase": "^1.4.1",
     "@nuxtjs/tailwindcss": "^6.12.2",
     "autoprefixer": "^10.4.20",
     "eslint": "^9.12.0",

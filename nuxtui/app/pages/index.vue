@@ -20,7 +20,26 @@
 		},
 	]);
 
-	const listings = ref([]);
+	const listings = ref([
+		{
+			price: 100000.0,
+			img: "https://ap.rdcpix.com/8c340fd63850ea7a2ccc49c23b4e68f5l-m2537335415rd-w960_h720.webp",
+			listingInfo:
+				"Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere dolorum sunt pariatur ex deleniti quisquam rem ullam, velit repudiandae sapiente?",
+		},
+		{
+			price: 200000.0,
+			img: "https://ap.rdcpix.com/837e330d170d55384a036ce2ba08c59cl-m1776296915rd-w960_h720.webp",
+			listingInfo:
+				"Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere dolorum sunt pariatur ex deleniti quisquam rem ullam, velit repudiandae sapiente?",
+		},
+		{
+			price: 300000.0,
+			img: "https://ap.rdcpix.com/3d9bd2203a8cd325a9707de748a83b41l-m744231667rd-w960_h720.webp",
+			listingInfo:
+				"Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere dolorum sunt pariatur ex deleniti quisquam rem ullam, velit repudiandae sapiente?",
+		},
+	]);
 </script>
 <template>
 	<!-- Hero Section -->
@@ -92,17 +111,21 @@
 	</section>
 	<Hr />
 	<!-- Featured Listings Section -->
-	<section v-if="(listings.length = 0)">
+	<section v-if="(listings.length != 0)">
 		<div class="flex flex-col items-center text-center mb-8">
-			<h1 class="font-bold text-3xl">Featured Listings</h1>
-			<p class="text-lg text-gray-500">Display featured listing cards here</p>
+			<h1 class="font-bold text-3xl mb-10">Featured Listings</h1>
+			<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mx-40">
+				<div v-for="listing in listings">
+					<CardListing :listing="listing" />
+				</div>
+			</div>
 		</div>
 		<Hr />
 	</section>
 	<!-- Agents section -->
 	<section>
 		<div class="my-12">
-			<h1 class="font-bold text-3xl text-center mb-6">Morin 2 Realty Agents</h1>
+			<h1 class="font-bold text-3xl text-center mb-10">Morin 2 Realty Agents</h1>
 			<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mx-40">
 				<div v-for="agent in agents">
 					<CardAgent class="drop-shadow-lg" :agent="agent" />
