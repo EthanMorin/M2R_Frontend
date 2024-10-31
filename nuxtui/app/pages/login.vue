@@ -1,4 +1,4 @@
-<script lang="ts">
+<script setup lang="ts">
 	const { $supabase } = useNuxtApp();
 
 	const signInWithGoogle = async () => {
@@ -111,7 +111,7 @@
 						<p class="text-sm font-light text-gray-500 dark:text-gray-400">
 							Don’t have an account yet?
 							<nuxt-link
-								to="register"
+								to="/register"
 								class="font-medium text-primary-600 hover:underline dark:text-primary-500"
 								>Sign Up</nuxt-link
 							>
