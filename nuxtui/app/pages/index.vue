@@ -22,18 +22,35 @@
 
 	const listings = ref([
 		{
+			title: "A Very Cool House",
 			price: 100000.0,
 			img: "https://ap.rdcpix.com/8c340fd63850ea7a2ccc49c23b4e68f5l-m2537335415rd-w960_h720.webp",
 			listingInfo:
 				"Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere dolorum sunt pariatur ex deleniti quisquam rem ullam, velit repudiandae sapiente?",
 		},
 		{
+			title: "A Even Cooler House",
 			price: 200000.0,
 			img: "https://ap.rdcpix.com/837e330d170d55384a036ce2ba08c59cl-m1776296915rd-w960_h720.webp",
 			listingInfo:
 				"Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere dolorum sunt pariatur ex deleniti quisquam rem ullam, velit repudiandae sapiente?",
 		},
 		{
+			title: "The Coolest House",
+			price: 300000.0,
+			img: "https://ap.rdcpix.com/3d9bd2203a8cd325a9707de748a83b41l-m744231667rd-w960_h720.webp",
+			listingInfo:
+				"Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere dolorum sunt pariatur ex deleniti quisquam rem ullam, velit repudiandae sapiente?",
+		},
+		{
+			title: "Da Coolest House",
+			price: 300000.0,
+			img: "https://ap.rdcpix.com/3d9bd2203a8cd325a9707de748a83b41l-m744231667rd-w960_h720.webp",
+			listingInfo:
+				"Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere dolorum sunt pariatur ex deleniti quisquam rem ullam, velit repudiandae sapiente?",
+		},
+		{
+			title: "The Coolest House",
 			price: 300000.0,
 			img: "https://ap.rdcpix.com/3d9bd2203a8cd325a9707de748a83b41l-m744231667rd-w960_h720.webp",
 			listingInfo:
@@ -41,96 +58,67 @@
 		},
 	]);
 </script>
+
 <template>
-	<!-- Hero Section -->
-	<section class="bg-white py-8">
+	<UContainer class="max-w-7xl mx-auto">
 		<div
-			class="container mx-auto flex flex-col md:flex-row items-center justify-around"
+			class="grid max-w-screen-xl py-8 lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12"
 		>
-			<!-- Text and Buttons Section -->
-			<div class="flex flex-col mb-8 md:mb-0">
-				<h1 class="text-3xl font-bold text-gray-800">Morin2Realty</h1>
-				<h2 class="text-xl text-gray-500 mb-4">Realtors for You</h2>
-
-				<!-- Placeholder for paragraph text -->
-				<div class="space-y-2 mb-6">
-					<div class="mr-10">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
-						dolorum sunt pariatur ex deleniti quisquam rem ullam, velit
-						repudiandae sapiente?
-					</div>
-				</div>
-
-				<!-- Buttons -->
-				<div class="space-x-4">
-					<button
-						class="bg-gray-800 text-white font-semibold py-2 px-6 rounded-full hover:bg-gray-900"
-					>
-						Contact
-					</button>
-					<button
-						class="border border-gray-400 text-gray-600 font-semibold py-2 px-6 rounded-full hover:bg-gray-100"
-					>
-						Listings
-					</button>
-				</div>
+			<div class="mr-auto place-self-center lg:col-span-7">
+				<h1
+					class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white"
+				>
+					Let's find your next house
+				</h1>
+				<p
+					class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl"
+				>
+					lorem ipsum haha poop poopies
+				</p>
+				<UButton size="xl" >View Listings</UButton>
 			</div>
-
-			<div class="w-full md:w-1/2">
+			<div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
 				<img
-					class="rounded-xl"
-					src="https://photos.zillowstatic.com/fp/d61ea3a9d530f8b3e90031cbb0fc441e-p_e.jpg"
+					src="https://wereintherockies.com/wp-content/uploads/2022/11/St.-George-Utah.jpg"
+					alt="mockup"
+					class="rounded-2xl"
 				/>
 			</div>
 		</div>
-	</section>
-	<Hr />
-	<!-- Call To Action -->
-	<section class="flex flex-col items-center px-72">
-		<h1 class="font-bold text-3xl text-center mb-6">
-			Let’s Find Your Next Home Together
-		</h1>
-		<p class="mb-6">
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, similique
-			magni perferendis obcaecati officia esse quo veritatis dolorum nihil
-			incidunt, officiis rerum cupiditate eveniet alias rem doloremque dolores
-			ducimus distinctio. Lorem ipsum, dolor sit amet consectetur adipisicing
-			elit. Magnam illum fugiat repellat nostrum fuga. Repellendus magni
-			possimus dolor consequuntur magnam dolores sint assumenda quam eveniet
-			facere minus rerum, consectetur explicabo! Lorem ipsum dolor sit amet
-			consectetur adipisicing elit. Consectetur, ratione necessitatibus quos
-			dolorem delectus dolorum earum maiores expedita aspernatur obcaecati
-			dicta, distinctio quis debitis suscipit quisquam ducimus voluptates
-			recusandae vel!
-		</p>
-		<button
-			class="bg-gray-800 text-white font-semibold py-2 px-6 rounded-full hover:bg-gray-900"
-		>
-			Contact Us
-		</button>
-	</section>
-	<Hr />
-	<!-- Featured Listings Section -->
-	<section v-if="(listings.length != 0)">
-		<div class="flex flex-col items-center text-center mb-8">
-			<h1 class="font-bold text-3xl mb-10">Featured Listings</h1>
-			<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mx-40">
-				<div v-for="listing in listings">
-					<CardListing :listing="listing" />
-				</div>
+	</UContainer>
+<!-- Testamonial -->
+	<UContainer class="my-20">
+		<UCard>
+			<UCarousel
+				v-slot="{ item }"
+				loop
+				auto-scroll
+				:items="listings"
+				:ui="{ item: 'basis-1/3' }"
+			>
+				<UCard>
+					<template #header>
+						<h3>{{ item.title }}</h3>
+						<img :src="item.img" alt="image of listing" />
+					</template>
+					<p>{{ item.price }}</p>
+					<p>{{ item.listingInfo }}</p>
+				</UCard>
+			</UCarousel>
+		</UCard>
+	</UContainer>
+	<UContainer class="my-20">
+		<h1 class="font-bold text-3xl text-center mb-10">Morin 2 Realty Agents</h1>
+		<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+			<div v-for="agent in agents">
+				<UCard>
+					<template #header>
+						<img class="rounded-full" :src="agent.img" />
+					</template>
+					<h2>{{ agent.name }}</h2>
+					<p>{{ agent.desc }}</p>
+				</UCard>
 			</div>
 		</div>
-		<Hr />
-	</section>
-	<!-- Agents section -->
-	<section>
-		<div class="my-12">
-			<h1 class="font-bold text-3xl text-center mb-10">Morin 2 Realty Agents</h1>
-			<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mx-40">
-				<div v-for="agent in agents">
-					<CardAgent class="drop-shadow-lg" :agent="agent" />
-				</div>
-			</div>
-		</div>
-	</section>
+	</UContainer>
 </template>

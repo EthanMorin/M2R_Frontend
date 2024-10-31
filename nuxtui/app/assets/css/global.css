@@ -1,0 +1,6 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+* {
+	@apply border-[#cad5e2];
+}
