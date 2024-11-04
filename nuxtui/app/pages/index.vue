@@ -15,7 +15,9 @@
 		{
 			name: "Jake Warnick",
 			img: "",
-			desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere dolorum sunt pariatur ex deleniti quisquam rem ullam, velit repudiandae sapiente?",
+			phone: "",
+			email: "",
+			desc: "",
 			id: 3,
 		},
 	]);
@@ -73,9 +75,15 @@
 				<p
 					class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl"
 				>
-					lorem ipsum haha poop poopies
+					Rachel and Brandon Morin are a team of experienced real estate
+					professionals specializing in residential properties who are dedicated
+					to providing exceptional service and guidance to buyers and sellers.
+					We are skilled in market analysis, negotiation, and marketing
+					strategies. Committed to delivering successful transactions and
+					helping clients achieve their real estate goals. Passionate about
+					building long-lasting relationships and exceeding client expectations.
 				</p>
-				<UButton size="xl" >View Listings</UButton>
+				<UButton size="xl">View Listings</UButton>
 			</div>
 			<div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
 				<img
@@ -86,7 +94,7 @@
 			</div>
 		</div>
 	</UContainer>
-<!-- Testamonial -->
+	<!-- Testamonial -->
 	<UContainer class="my-20">
 		<UCard>
 			<UCarousel
@@ -116,6 +124,8 @@
 						<img class="rounded-full" :src="agent.img" />
 					</template>
 					<h2>{{ agent.name }}</h2>
+					<p>{{ agent.phone }}</p>
+					<p>{{ agent.email }}</p>
 					<p>{{ agent.desc }}</p>
 				</UCard>
 			</div>

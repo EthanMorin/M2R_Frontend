@@ -1,6 +1,10 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
 
+:root {
+	--color-primary: #c72929;
+}
+
 * {
 	@apply border-[#cad5e2];
 }
