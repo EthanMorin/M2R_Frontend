@@ -21,8 +21,8 @@
 				<ULink variant="link" to="/listings" class="mr-4">Listings</ULink>
 				<ULink variant="link" to="/contact" class="mr-4">Contact</ULink>
 				<ULink variant="link" to="/login" class="mr-4">Login</ULink>
-				<!-- <UButton size="lg" to="/register" color="primary">Register</UButton> -->
-				<UButton size="lg" to="/register" class="bg-red-600">Register</UButton>
+				<UButton size="lg" to="/register" color="primary">Register</UButton>
+				<!-- <UButton size="lg" to="/register" class="bg-red-600">Register</UButton> -->
 			</div>
 		</UContainer>
 	</div>
