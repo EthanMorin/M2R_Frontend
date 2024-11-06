@@ -1,4 +1,5 @@
 <script setup lang="ts">
+	// const user = useSupabaseUser()
 	const agents = ref([
 		{
 			name: "Brandon Morin",
