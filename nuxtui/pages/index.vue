@@ -121,7 +121,7 @@
 			<div v-for="agent in agents">
 				<UCard>
 					<template #header>
-						<img class="rounded-full" :src="agent.img" />
+						<img class="rounded-full" :src="agent.img" loading="lazy" />
 					</template>
 					<h2>{{ agent.name }}</h2>
 					<p>{{ agent.phone }}</p>

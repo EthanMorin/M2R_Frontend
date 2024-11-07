@@ -1,19 +1,4 @@
 <script setup lang="ts">
-	const { $supabase } = useNuxtApp();
-
-	const signInWithGoogle = async () => {
-		const { data, error } = await $supabase.auth.signInWithOAuth({
-			provider: "google",
-		});
-		if (error) console.error("Error signing in:", error.message);
-		else console.log("Signed in:", data);
-	};
-
-	const signOut = async () => {
-		const { error } = await $supabase.auth.signOut();
-		if (error) console.error("Error signing out:", error.message);
-		else console.log("Signed out successfully");
-	};
 </script>
 <template>
 	<section class="bg-gray-50 dark:bg-gray-900">
@@ -123,7 +108,6 @@
 							<button
 								type="button"
 								class="flex items-center w-full px-4 py-2 mb-4 text-gray-700 border rounded-lg hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-								@click="signInWithGoogle()"
 							>
 								<img
 									src="https://www.svgrepo.com/show/355037/google.svg"
