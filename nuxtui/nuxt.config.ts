@@ -6,6 +6,10 @@ export default defineNuxtConfig({
 
   hub: { cache: true },
 
+  supabase:{
+    redirect: false
+  },
+
   css: ['./assets/css/global.css'],
   colorMode: { preference: 'light' },
 

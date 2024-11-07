@@ -1,18 +1,13 @@
 <script setup lang="ts">
-	const { $supabase } = useNuxtApp();
+	const supabase = useSupabaseClient();
 
 	const signInWithGoogle = async () => {
-		const { data, error } = await $supabase.auth.signInWithOAuth({
+		const { error } = await supabase.auth.signInWithOAuth({
 			provider: "google",
+			options: {
+				redirectTo: "http://localhost:3000/confirm",
+			},
 		});
-		if (error) console.error("Error signing in:", error.message);
-		else console.log("Signed in:", data);
-	};
-
-	const signOut = async () => {
-		const { error } = await $supabase.auth.signOut();
-		if (error) console.error("Error signing out:", error.message);
-		else console.log("Signed out successfully");
 	};
 </script>
 <template>

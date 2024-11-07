@@ -1,14 +1,21 @@
 <script setup lang="ts">
 	const user = useSupabaseUser();
 
-	watch(user, () => {
-		if (user.value) {
-			return navigateTo("/listings");
-		}
-	});
+	watch(
+		user,
+		() => {
+			if (user.value) {
+				return navigateTo("/listings");
+			} else {
+				console.log("Authentication failed");
+			}
+		},
+		{ immediate: true }
+	);
 </script>
 
 <template>
-	<pre>{{ user }}</pre>
-	<div>loading...</div>
+	<div>
+		<p>Redirecting...</p>
+	</div>
 </template>
