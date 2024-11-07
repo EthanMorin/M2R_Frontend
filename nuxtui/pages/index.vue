@@ -76,7 +76,7 @@
 					helping clients achieve their real estate goals. Passionate about
 					building long-lasting relationships and exceeding client expectations.
 				</p>
-				<UButton size="xl">View Listings</UButton>
+				<UButton size="xl" to="/listings">View Listings</UButton>
 			</div>
 			<div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
 				<img
@@ -97,7 +97,7 @@
 				:items="listings"
 				:ui="{ item: 'basis-1/3' }"
 			>
-				<CardListing :listing="item" />
+				<CardListing :listing="item" class="drop-shadow-2xl" />
 			</UCarousel>
 		</UCard>
 	</UContainer>
