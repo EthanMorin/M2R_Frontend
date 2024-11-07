@@ -1,6 +1,10 @@
 <script setup lang="ts">
 	const supabase = useSupabaseClient();
 
+	// const createAccount = async () => {
+	// 	const {error} = await supabase.auth.
+	// };
+
 	const signInWithGoogle = async () => {
 		const { error } = await supabase.auth.signInWithOAuth({
 			provider: "google",
@@ -103,31 +107,18 @@
 								</div>
 							</div>
 						</div>
-						<button
-							type="submit"
-							class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-						>
-							Sign in
-						</button>
+						<UButton label="Sign in" block color="primary" @click="" />
 						<div class="flex items-center justify-center my-4">
 							<hr class="w-full border-gray-300" />
 							<span class="px-3 text-gray-500 font-medium">or</span>
 							<hr class="w-full border-gray-300" />
 						</div>
-						<div class="flex justify-center">
-							<button
-								type="button"
-								class="flex items-center w-full px-4 py-2 mb-4 text-gray-700 border rounded-lg hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-								@click="signInWithGoogle()"
-							>
-								<img
-									src="https://www.svgrepo.com/show/355037/google.svg"
-									alt="Google logo"
-									class="w-5 h-5 mr-2"
-								/>
-								<span>Sign in with Google</span>
-							</button>
-						</div>
+						<UButton
+							label="Sign in with Google"
+							icon="logos:google-icon"
+							color="neutral"
+							block
+						/>
 						<p class="text-sm font-light text-gray-500 dark:text-gray-400">
 							Already have an account?
 							<nuxt-link

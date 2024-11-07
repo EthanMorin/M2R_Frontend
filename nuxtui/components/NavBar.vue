@@ -11,7 +11,7 @@
 				><img src="/m2r-logo.png" alt="M2R logo" class="w-32"
 			/></NuxtLink>
 			<UInput
-				size="lg"
+				size="xl"
 				color="neutral"
 				icon="material-symbols:search-rounded"
 				placeholder="search for listings"
@@ -22,7 +22,6 @@
 				<ULink variant="link" to="/contact" class="mr-4">Contact</ULink>
 				<ULink variant="link" to="/login" class="mr-4">Login</ULink>
 				<UButton size="lg" to="/register" color="primary">Register</UButton>
-				<!-- <UButton size="lg" to="/register" class="bg-red-600">Register</UButton> -->
 			</div>
 		</UContainer>
 	</div>
