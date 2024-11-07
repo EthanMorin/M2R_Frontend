@@ -97,7 +97,7 @@
 				:items="listings"
 				:ui="{ item: 'basis-1/3' }"
 			>
-				<CardListing :listing="item" />
+				<CardListing :listing="item" class="drop-shadow-2xl" />
 			</UCarousel>
 		</UCard>
 	</UContainer>
