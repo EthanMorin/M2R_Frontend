@@ -1,9 +1,12 @@
-<style>
-	.red {
-		background-color: rgb(232,29,53) 
-	}
-</style>
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { tryRequireModule } from 'nuxt/kit';
+
+	const user = useSupabaseUser();
+	let isLoggedIn: Boolean = false;
+	watch(user, () => {
+		isLoggedIn = true;
+	});
+</script>
 <template>
 	<div class="border-b">
 		<UContainer class="flex justify-between items-center py-4">
@@ -20,9 +23,14 @@
 			<div class="flex items-center">
 				<ULink variant="link" to="/listings" class="mr-4">Listings</ULink>
 				<ULink variant="link" to="/contact" class="mr-4">Contact</ULink>
-				<ULink variant="link" to="/login" class="mr-4">Login</ULink>
-				<UButton size="lg" to="/register" color="primary">Register</UButton>
+				<ULink v-if="!isLoggedIn" variant="link" to="/login" class="mr-4"
+					>Login</ULink
+				>
+				<UButton v-if="!isLoggedIn" size="lg" to="/register" color="primary"
+					>Register</UButton
+				>
 			</div>
+			{{ isLoggedIn ? "Logged in as: " + user?.email : "" }}
 		</UContainer>
 	</div>
 </template>

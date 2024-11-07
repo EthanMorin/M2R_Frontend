@@ -10,6 +10,7 @@
 			console.log(error);
 		}
 	};
+
 	const signInWithGoogle = async () => {
 		const { error } = await supabase.auth.signInWithOAuth({
 			provider: "google",
@@ -100,6 +101,7 @@
 							label="Sign in with Google"
 							icon="logos:google-icon"
 							color="neutral"
+							@click="signInWithGoogle()"
 							block
 						/>
 						<p class="text-sm font-light text-gray-500 dark:text-gray-400">
