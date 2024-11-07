@@ -1,7 +1,21 @@
 <script setup lang="ts">
-const user = useSupabaseUser()
+	const user = useSupabaseUser();
+
+	watch(
+		user,
+		() => {
+			if (user.value) {
+				return navigateTo("/listings");
+			} else {
+				console.log("Authentication failed");
+			}
+		},
+		{ immediate: true }
+	);
 </script>
+
 <template>
-  <pre>{{ user }}</pre>
-  <NuxtLoadingIndicator />
+	<div>
+		<p>Redirecting...</p>
+	</div>
 </template>

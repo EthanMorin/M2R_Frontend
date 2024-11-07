@@ -1,5 +1,27 @@
 <script setup lang="ts">
+	const supabase = useSupabaseClient();
+	const form = reactive({ email: "", password: "" });
+	const signInWithEmail = async () => {
+		const { error } = await supabase.auth.signInWithPassword({
+			email: form.email,
+			password: form.password,
+		});
+		if (error != null) {
+			console.log(error);
+		}
+	};
 
+	const signInWithGoogle = async () => {
+		const { error } = await supabase.auth.signInWithOAuth({
+			provider: "google",
+			options: {
+				redirectTo: "http://localhost:3000/confirm",
+			},
+		});
+		if (error != null) {
+			console.log(error);
+		}
+	};
 </script>
 <template>
 	<section class="bg-gray-50 dark:bg-gray-900">
@@ -13,7 +35,7 @@
 					<h1
 						class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white"
 					>
-						Sign in to your account
+						Create your account
 					</h1>
 					<form class="space-y-4 md:space-y-6" action="#">
 						<div>
@@ -63,42 +85,32 @@
 									>
 								</div>
 							</div>
-							<a
-								href="#"
-								class="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500"
-								>Forgot password?</a
-							>
 						</div>
-						<button
-							type="submit"
-							class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-						>
-							Sign in
-						</button>
+						<UButton
+							label="Sign in"
+							block
+							color="primary"
+							@click="signInWithEmail()"
+						/>
 						<div class="flex items-center justify-center my-4">
 							<hr class="w-full border-gray-300" />
 							<span class="px-3 text-gray-500 font-medium">or</span>
 							<hr class="w-full border-gray-300" />
 						</div>
-						<div class="flex justify-center">
-							<button
-								type="button"
-								class="flex items-center w-full px-4 py-2 mb-4 text-gray-700 border rounded-lg hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-							>
-								<img
-									src="https://www.svgrepo.com/show/355037/google.svg"
-									alt="Google logo"
-									class="w-5 h-5 mr-2"
-								/>
-								<span>Sign in with Google</span>
-							</button>
-						</div>
+						<UButton
+							label="Sign in with Google"
+							icon="logos:google-icon"
+							color="neutral"
+							@click="signInWithGoogle()"
+							block
+						/>
 						<p class="text-sm font-light text-gray-500 dark:text-gray-400">
-							Don’t have an account yet?
+							Need an account?
 							<nuxt-link
 								to="/register"
 								class="font-medium text-primary-600 hover:underline dark:text-primary-500"
-								>Sign Up</nuxt-link
+							>
+								Sign Up</nuxt-link
 							>
 						</p>
 					</form>

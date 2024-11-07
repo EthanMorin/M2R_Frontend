@@ -6,11 +6,8 @@ export default defineNuxtConfig({
 
   hub: { cache: true },
 
-  // Env variables - https://nuxt.com/docs/getting-started/configuration#environment-variables-and-private-tokens
-  runtimeConfig: {
-    apiKey: '',
-    public: {
-    }
+  supabase:{
+    redirect: false
   },
 
   supabase: {
