@@ -12,14 +12,7 @@
 			img: "https://cdn.chime.me/image/fs/user-info/2024524/12/w640_original_e2b9baaf-556d-420d-8d0f-f172eddab966-png.webp",
 			phone: "",
 			desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere dolorum sunt pariatur ex deleniti quisquam rem ullam, velit repudiandae sapiente?",
-		},
-		{
-			name: "Jake Warnick",
-			img: "",
-			phone: "",
-			email: "",
-			desc: "",
-		},
+		}
 	]);
 
 	const listings = ref([
@@ -110,8 +103,10 @@
 	</UContainer>
 	<UContainer class="my-20">
 		<h1 class="font-bold text-3xl text-center mb-10">Morin 2 Realty Agents</h1>
-		<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-			<div v-for="agent in agents">
+		<div
+			class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 justify-center"
+		>
+			<div v-for="agent in agents" class="flex justify-center">
 				<CardAgent :agent="agent" />
 			</div>
 		</div>
