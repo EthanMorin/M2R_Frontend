@@ -43,14 +43,7 @@
 		<h1 class="font-bold text-3xl text-center mb-6">Listings</h1>
 		<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mx-40">
 			<div v-for="listing in listings">
-				<UCard>
-					<template #header>
-						<h3>{{ listing.title }}</h3>
-						<img :src="listing.img" alt="image of listing" />
-					</template>
-					<p>{{ listing.price }}</p>
-					<p>{{ listing.listingInfo }}</p>
-				</UCard>
+        <CardListing :listing="listing" />
 			</div>
 		</div>
 	</div>

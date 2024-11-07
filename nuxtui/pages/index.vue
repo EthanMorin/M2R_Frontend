@@ -4,14 +4,14 @@
 		{
 			name: "Brandon Morin",
 			img: "https://cdn.chime.me/image/fs/user-info/2023810/9/w600_original_2bf11a11-b748-4f36-813e-e4ddb64fc8e7-png.webp",
+			phone: "",
 			desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere dolorum sunt pariatur ex deleniti quisquam rem ullam, velit repudiandae sapiente?",
-			id: 1,
 		},
 		{
 			name: "Adina Richards",
 			img: "https://cdn.chime.me/image/fs/user-info/2024524/12/w640_original_e2b9baaf-556d-420d-8d0f-f172eddab966-png.webp",
+			phone: "",
 			desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere dolorum sunt pariatur ex deleniti quisquam rem ullam, velit repudiandae sapiente?",
-			id: 2,
 		},
 		{
 			name: "Jake Warnick",
@@ -19,7 +19,6 @@
 			phone: "",
 			email: "",
 			desc: "",
-			id: 3,
 		},
 	]);
 
@@ -105,14 +104,7 @@
 				:items="listings"
 				:ui="{ item: 'basis-1/3' }"
 			>
-				<UCard>
-					<template #header>
-						<h3>{{ item.title }}</h3>
-						<img :src="item.img" alt="image of listing" />
-					</template>
-					<p>{{ item.price }}</p>
-					<p>{{ item.listingInfo }}</p>
-				</UCard>
+				<CardListing :listing="item" />
 			</UCarousel>
 		</UCard>
 	</UContainer>
@@ -120,15 +112,7 @@
 		<h1 class="font-bold text-3xl text-center mb-10">Morin 2 Realty Agents</h1>
 		<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
 			<div v-for="agent in agents">
-				<UCard>
-					<template #header>
-						<img class="rounded-full" :src="agent.img" />
-					</template>
-					<h2>{{ agent.name }}</h2>
-					<p>{{ agent.phone }}</p>
-					<p>{{ agent.email }}</p>
-					<p>{{ agent.desc }}</p>
-				</UCard>
+				<CardAgent :agent="agent" />
 			</div>
 		</div>
 	</UContainer>
