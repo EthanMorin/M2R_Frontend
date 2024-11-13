@@ -14,8 +14,21 @@
 		created_at: string;
 	}
 
+	// Add interface for listing type
+	interface Listing {
+		id: string;
+		title: string;
+		price: number;
+		images: string[];
+	}
+
 	const userStore = useUserStore();
 	const user = computed<User | null>(() => userStore.getUser);
+
+	// Add favoritedListings ref or computed property
+	const favoritedListings = ref<Listing[]>([]);  // If you'll fetch/update it later
+	// OR
+	// const favoritedListings = computed(() => userStore.getFavoritedListings);  // If it comes from store
 
 	const handleLogout = async () => {
 		const supabase = useSupabaseClient();

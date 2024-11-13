@@ -12,7 +12,7 @@ export default defineNuxtConfig({
 
   hub: { cache: true },
 
-  supabase:{
+  supabase: {
     redirect: false
   },
 
@@ -20,5 +20,10 @@ export default defineNuxtConfig({
   colorMode: { preference: 'light' },
 
   devtools: { enabled: true },
+
+  runtimeConfig: {
+    realEstateApiKey: process.env.REAL_ESTATE_API_KEY,
+    realEstateApiUri: process.env.REAL_ESTATE_API_URI,
+  },
 })
 
