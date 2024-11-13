@@ -2,7 +2,13 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-07-30',
   future: { compatibilityVersion: 3 },
 
-  modules: ['@nuxthub/core', '@nuxt/eslint', '@nuxt/ui', '@nuxtjs/supabase'],
+  modules: [
+    '@nuxthub/core',
+    '@nuxt/eslint',
+    '@nuxt/ui',
+    '@nuxtjs/supabase',
+    '@pinia/nuxt',
+  ],
 
   hub: { cache: true },
 
@@ -15,3 +21,4 @@ export default defineNuxtConfig({
 
   devtools: { enabled: true },
 })
+
