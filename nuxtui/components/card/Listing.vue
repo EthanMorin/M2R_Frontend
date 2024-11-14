@@ -6,13 +6,6 @@
 			price: number;
 			address: string;
 			listingInfo: string;
-			details: {
-				beds: number;
-				baths: number;
-				sqft: number;
-				yearBuilt: number;
-				propertyType: string;
-			}
 		};
 	}>();
 
