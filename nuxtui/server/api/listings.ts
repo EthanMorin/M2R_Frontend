@@ -18,14 +18,11 @@ interface TrimmedListing {
 }
 const config = useRuntimeConfig()
 
-export default defineCachedEventHandler(async (event) => {
+export default defineEventHandler(async (event) => {
   const query = getQuery(event)
-  const page = Number(query.page) || 1
-  const limit = Number(query.limit) || 9
-  const offset = (page - 1) * limit
 
   try {
-    const response = await fetch(`${config.realEstateApiUri}?offset=${offset}&limit=${limit}`, {
+    const response = await fetch(`${config.realEstateApiUri}/listings`, {
       headers: {
         'Authorization': `Bearer ${config.realEstateApiKey}`
       }
@@ -33,24 +30,26 @@ export default defineCachedEventHandler(async (event) => {
     const data = await response.json()
 
     // Transform the data to match your needs
-    const trimmedListings: TrimmedListing[] = data.map((listing: any) => ({
-      id: listing.ListingKey,
-      title: listing.StandardFields.SubdivisionName || 'New Property Listing',
-      price: listing.StandardFields.CurrentPrice,
-      img: listing.StandardFields.Photos?.[0]?.Uri || '',
-      listingInfo: listing.StandardFields.PublicRemarks,
-      address: `${listing.StandardFields.UnparsedFirstLineAddress}, ${listing.StandardFields.City}, ${listing.StandardFields.StateOrProvince}`,
-      details: {
-        beds: listing.StandardFields.BedsTotal,
-        baths: listing.StandardFields.BathsTotal,
-        sqft: listing.StandardFields.BuildingAreaTotal,
-        yearBuilt: listing.StandardFields.YearBuilt,
-        propertyType: listing.StandardFields.PropertySubType
-      }
-    }))
+    // const trimmedListings: TrimmedListing[] = data.map((listing: any) => ({
+    //   id: listing.ListingKey,
+    //   title: listing.StandardFields.SubdivisionName || 'New Property Listing',
+    //   price: listing.StandardFields.CurrentPrice,
+    //   img: listing.StandardFields.Photos?.[0]?.Uri || '',
+    //   listingInfo: listing.StandardFields.PublicRemarks,
+    //   address: `${listing.StandardFields.UnparsedFirstLineAddress}, ${listing.StandardFields.City}, ${listing.StandardFields.StateOrProvince}`,
+    //   details: {
+    //     beds: listing.StandardFields.BedsTotal,
+    //     baths: listing.StandardFields.BathsTotal,
+    //     sqft: listing.StandardFields.BuildingAreaTotal,
+    //     yearBuilt: listing.StandardFields.YearBuilt,
+    //     propertyType: listing.StandardFields.PropertySubType
+    //   }
+    // }))
 
-    return trimmedListings
+    // return trimmedListings
+    return data
   } catch (error) {
+    console.log(error)
     throw createError({
       statusCode: 500,
       message: 'Failed to fetch listings'

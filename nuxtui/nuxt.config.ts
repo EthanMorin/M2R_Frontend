@@ -22,8 +22,8 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
 
   runtimeConfig: {
-    realEstateApiKey: process.env.REAL_ESTATE_API_KEY,
     realEstateApiUri: process.env.REAL_ESTATE_API_URI,
+    realEstateApiKey: process.env.REAL_ESTATE_API_KEY,
   },
 })
 
