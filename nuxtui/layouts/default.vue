@@ -1,5 +1,5 @@
 <template>
 	<NavBar />
-	<slot />
+	<slot class="w-dvw min-h-dvh my-12" />
 	<FooterBar />
 </template>

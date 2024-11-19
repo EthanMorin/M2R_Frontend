@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import { tryRequireModule } from 'nuxt/kit';
+	const userStore = useUserStore()
 
-	const user = useSupabaseUser();
-	let isLoggedIn: Boolean = false;
-	watch(user, () => {
-		isLoggedIn = true;
-	});
+	const handleLogout = async () => {
+		const supabase = useSupabaseClient()
+		await supabase.auth.signOut()
+		userStore.clearUser()
+		navigateTo('/login')
+	}
 </script>
 <template>
 	<div class="border-b">
@@ -24,15 +25,15 @@ import { tryRequireModule } from 'nuxt/kit';
 			</div>
 			<div class="flex items-center">
 				<ULink variant="link" to="/listings" class="mr-4">Listings</ULink>
-				<!-- <ULink variant="link" to="/contact" class="mr-4">Contact</ULink> -->
-				<ULink v-if="!isLoggedIn" variant="link" to="/login" class="mr-4"
-					>Login</ULink
-				>
-				<UButton v-if="!isLoggedIn" size="lg" to="/register" color="primary"
-					>Register</UButton
-				>
+				<ULink variant="link" to="/contact" class="mr-4">Contact</ULink>
+				<template v-if="!userStore.isLoggedIn">
+					<ULink variant="link" to="/login" class="mr-4">Login</ULink>
+					<UButton size="lg" to="/register" color="primary">Register</UButton>
+				</template>
+				<template v-else>
+					<ULink variant="link" to="/user" class="mr-4">Profile</ULink>
+				</template>
 			</div>
-			{{ isLoggedIn ? "Logged in as: " + user?.email : "" }}
 		</UContainer>
 	</div>
 </template>

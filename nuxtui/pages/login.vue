@@ -1,24 +1,32 @@
 <script setup lang="ts">
 	const supabase = useSupabaseClient();
+	const userStore = useUserStore();
 	const form = reactive({ email: "", password: "", remember: false });
+
 	const signInWithEmail = async () => {
-		const { error } = await supabase.auth.signInWithPassword({
+		const { data, error } = await supabase.auth.signInWithPassword({
 			email: form.email,
 			password: form.password,
 		});
-		if (error != null) {
+
+		if (error) {
 			console.log(error);
+			return;
 		}
+
+		userStore.setUser(data.user);
+		navigateTo("/listings");
 	};
 
 	const signInWithGoogle = async () => {
 		const { error } = await supabase.auth.signInWithOAuth({
 			provider: "google",
 			options: {
-				redirectTo: "http://localhost:3000/confirm",
+				redirectTo: `${window.location.origin}/confirm`,
 			},
 		});
-		if (error != null) {
+
+		if (error) {
 			console.log(error);
 		}
 	};
