@@ -13,13 +13,18 @@ export const useUserStore = defineStore('user', {
     },
 
     clearUser() {
-      this.user = null
-      this.isLoggedIn = false
+      this.$reset()
+      this.$state = {
+        user: null,
+        isLoggedIn: false
+      }
     }
   },
 
   getters: {
     getUser: (state) => state.user,
     getUserLoginStatus: (state) => state.isLoggedIn
-  }
+  },
+
+  persist: true
 }) 

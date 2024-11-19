@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     '@nuxtjs/supabase',
     '@pinia/nuxt',
+    'pinia-plugin-persistedstate/nuxt',
   ],
 
   hub: { cache: true },

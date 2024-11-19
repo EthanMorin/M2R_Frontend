@@ -4,7 +4,8 @@
 
 	watch(
 		user,
-		() => {
+		async () => {
+			await new Promise((resolve) => setTimeout(resolve, 5000));
 			if (user.value) {
 				userStore.setUser(user.value);
 				return navigateTo("/listings");
