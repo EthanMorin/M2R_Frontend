@@ -5,14 +5,30 @@
 		email: "",
 		phone: "",
 		password: "",
-		remember: false,
 	});
+
+	async function register() {
+		const { error } = await supabase.auth.signUp({
+			email: form.value.email,
+			password: form.value.password,
+			options: {
+				data: {
+					full_name: form.value.fullName,
+					email: form.value.email,
+					phone: form.value.phone,
+				},
+			},
+		});
+		if (error) {
+			console.log(error);
+		}
+	}
 
 	const signInWithGoogle = async () => {
 		const { error } = await supabase.auth.signInWithOAuth({
 			provider: "google",
 			options: {
-				redirectTo: "http://localhost:3000/confirm",
+				redirectTo: "/confirm",
 			},
 		});
 	};
@@ -55,9 +71,8 @@
 <template>
 	<div class="flex w-dvw h-dvh justify-center items-center">
 		<UCard class="w-full max-w-md">
-			
-			<!-- <h1
-				class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white"
+			<h1
+				class="text-xl mb-5 font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white"
 			>
 				Create your account
 			</h1>
@@ -71,7 +86,7 @@
 					required
 				/>
 			</UFormField>
-			<UFormField label="Your email" class="w-full" required>
+			<UFormField label="Your email" class="w-full my-2.5" required>
 				<UInput
 					v-model="form.email"
 					placeholder="name@company.com"
@@ -81,7 +96,7 @@
 					required
 				/>
 			</UFormField>
-			<UFormField label="Your phone" class="w-full">
+			<UFormField label="Your phone" class="w-full my-2.5">
 				<UInput
 					v-model="form.phone"
 					placeholder="***-***-****"
@@ -91,7 +106,33 @@
 				/>
 			</UFormField>
 			<div class="space-y-2">
-				<UFormField label="Password" required>
+				<UFormField label="Password" required class="my-2.5">
+					<UInput
+						v-model="password"
+						placeholder="Password"
+						:color="color"
+						:type="show ? 'text' : 'password'"
+						:ui="{ trailing: 'pr-0.5' }"
+						:aria-invalid="score < 4"
+						aria-describedby="password-strength"
+						class="w-full"
+						required
+					>
+						<template #trailing>
+							<UButton
+								color="neutral"
+								variant="link"
+								size="sm"
+								:icon="show ? 'i-lucide-eye-off' : 'i-lucide-eye'"
+								aria-label="show ? 'Hide password' : 'Show password'"
+								:aria-pressed="show"
+								aria-controls="password"
+								@click="show = !show"
+							/>
+						</template>
+					</UInput>
+				</UFormField>
+				<UFormField label="Confirm Password" required class="my-2.5">
 					<UInput
 						v-model="password"
 						placeholder="Password"
@@ -151,25 +192,13 @@
 					</li>
 				</ul>
 			</div>
-			<div class="flex items-center justify-between">
-				<div class="flex items-start">
-					<div class="flex items-center h-5">
-						<input
-							id="remember"
-							aria-describedby="remember"
-							type="checkbox"
-							class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"
-							required="false"
-						/>
-					</div>
-					<div class="ml-3 text-sm">
-						<label for="remember" class="text-gray-500 dark:text-gray-300"
-							>Remember me</label
-						>
-					</div>
-				</div>
-			</div>
-			<UButton label="Create Account" block color="primary" @click="" />
+			<UButton
+				label="Create Account"
+				block
+				color="primary"
+				@click="register()"
+				class="mt-5"
+			/>
 			<div class="flex items-center justify-center my-4">
 				<hr class="w-full border-gray-300" />
 				<span class="px-3 text-gray-500 font-medium">or</span>
@@ -181,6 +210,7 @@
 				color="neutral"
 				@click="signInWithGoogle()"
 				block
+				class="mb-5"
 			/>
 			<p class="text-sm font-light text-gray-500 dark:text-gray-400">
 				Already have an account?
@@ -190,7 +220,7 @@
 				>
 					Sign In</nuxt-link
 				>
-			</p> -->
+			</p>
 		</UCard>
 	</div>
 </template>
