@@ -1,6 +1,30 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
 
-* {
+/* * {
 	@apply border-[#cad5e2];
+} */
+
+:root {
+	--app-font-family: "Inter", sans-serif;
+	--app-primary: #c72929;
+	--app-secondary: #616161;
+	--app-accent: #bdbdbd;
+	--app-background: #fbfbfe;
+	--app-text: #040316;
+}
+
+:root {
+	--font-family-sans: var(--app-font-family);
+	--ui-text: var(--app-foreground);
+	--ui-primary: var(--app-primary);
+	--ui-secondary: var(--app-secondary);
+}
+
+@theme {
+	--color-primary: var(--app-primary);
+	--color-secondary: var(--app-secondary);
+	--color-accent: var(--app-accent);
+	--color-background: var(--app-background);
+	--color-text: var(--app-text);
 }
