@@ -17,10 +17,6 @@ export default defineNuxtConfig({
     redirect: false
   },
 
-  supabase: {
-    redirect: false
-  },
-
   css: ['./assets/css/global.css'],
   colorMode: { preference: 'light' },
 
