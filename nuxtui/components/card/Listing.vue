@@ -1,44 +1,47 @@
 <script setup lang="ts">
+	import type { Listing } from "~/types/listing";
 	const props = defineProps<{
-		listing: {
-			id: string;
-			title: string;
-			img: string;
-			price: number;
-			address: string;
-			listingInfo: string;
-		};
+		listing: Listing;
 	}>();
 
-	const formattedPrice = computed(
-		() => `$${props.listing.price.toLocaleString()}`
-	);
+	// const formattedPrice = computed(
+	// 	() => `$${props.listing.listPrice.toLocaleString()}`
+	// );
 </script>
 <template>
 	<UCard class="relative h-[300px] w-full rounded-lg overflow-hidden shadow-lg">
 		<div class="absolute inset-0 overflow-hidden">
-			<img
+			<!-- <img
 				:src="listing.img"
 				:alt="listing.title"
 				class="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
-			/>
+			/> -->
 		</div>
 		<div
 			class="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/70 via-black/40 to-transparent text-white p-4 z-10"
 		>
-			<div class="flex flex-row">
+			<div class="flex flex-row justify-between">
 				<div>
-					<div class="text-2xl font-bold">{{ formattedPrice }}</div>
-					<div class="text-sm">{{ listing.address }}</div>
-					<div class="text-sm mt-1 mb-3">{{ listing.listingInfo }}</div>
+					<div class="text-2xl font-bold">
+						${{ listing.listPrice.toLocaleString() }}
+					</div>
+					<div class="text-sm">
+						{{ listing.address.streetNumber }}
+						{{ listing.address.streetDirPrefix }}
+						{{ listing.address.streetName }}
+						{{ listing.address.streetSuffix }}
+						{{ listing.address.city }},
+						{{ listing.address.stateOrProvince }}
+						{{ listing.address.postalCode }}
+					</div>
 				</div>
-				<div class="flex justify-end items-end">
+				<div class="flex justify-center items-center">
 					<UButton
 						size="lg"
 						label="View"
 						color="neutral"
 						block
-						class="ml-4"
+						class="w-2xl"
 						@click="navigateTo(`/listing/${listing.id}`)"
 					/>
 				</div>

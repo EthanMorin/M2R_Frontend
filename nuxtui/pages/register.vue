@@ -1,13 +1,20 @@
 <script setup lang="ts">
+	const passwordsDontMatch = ref(false);
 	const supabase = useSupabaseClient();
 	const form = ref({
 		fullName: "",
 		email: "",
 		phone: "",
 		password: "",
+		confirmPassword: "",
 	});
 
 	async function register() {
+		if (!form.value.password.match(form.value.confirmPassword)) {
+			passwordsDontMatch.value = true;
+			return;
+		}
+
 		const { error } = await supabase.auth.signUp({
 			email: form.value.email,
 			password: form.value.password,
@@ -106,9 +113,10 @@
 				/>
 			</UFormField>
 			<div class="space-y-2">
+				<!-- TODO: add error message if passwords dont match -->
 				<UFormField label="Password" required class="my-2.5">
 					<UInput
-						v-model="password"
+						v-model="form.password"
 						placeholder="Password"
 						:color="color"
 						:type="show ? 'text' : 'password'"
@@ -134,7 +142,7 @@
 				</UFormField>
 				<UFormField label="Confirm Password" required class="my-2.5">
 					<UInput
-						v-model="password"
+						v-model="form.confirmPassword"
 						placeholder="Password"
 						:color="color"
 						:type="show ? 'text' : 'password'"
