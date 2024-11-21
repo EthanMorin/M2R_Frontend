@@ -9,9 +9,6 @@
 			if (user.value) {
 				userStore.setUser(user.value);
 				return navigateTo("/listings");
-			} else {
-				console.log("Authentication failed");
-				return navigateTo("/login");
 			}
 		},
 		{ immediate: true }
