@@ -1,6 +1,7 @@
 <script setup lang="ts">
 	const props = defineProps<{
 		listing: {
+			id: string;
 			title: string;
 			img: string;
 			price: number;
@@ -38,6 +39,7 @@
 						color="neutral"
 						block
 						class="ml-4"
+						@click="navigateTo(`/listing/${listing.id}`)"
 					/>
 				</div>
 			</div>

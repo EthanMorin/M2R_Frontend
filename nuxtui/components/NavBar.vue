@@ -1,12 +1,5 @@
 <script setup lang="ts">
-	const userStore = useUserStore()
-
-	const handleLogout = async () => {
-		const supabase = useSupabaseClient()
-		await supabase.auth.signOut()
-		userStore.clearUser()
-		navigateTo('/login')
-	}
+	const userStore = useUserStore();
 </script>
 <template>
 	<div class="border-b">
