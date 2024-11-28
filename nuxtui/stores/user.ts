@@ -20,6 +20,10 @@ export const useUserStore = defineStore('user', {
       this.fullName = user?.user_metadata?.full_name || user?.email || 'User'
     },
 
+    getUser() {
+      return this.user
+    },
+
     clearUser() {
       this.$reset()
       this.$state = {
