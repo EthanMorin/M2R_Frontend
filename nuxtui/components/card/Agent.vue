@@ -1,22 +1,18 @@
 <script lang="ts" setup>
+	import type {Agent} from "~/types/agent.js"
 	defineProps<{
-		agent: {
-			name: string;
-			img: string;
-			email: string;
-			phone?: string;
-			desc?: string;
-		};
+		agent: Agent;
 	}>();
 </script>
 <template>
 	<UCard>
 		<template #header>
-			<img class="rounded-full" :src="agent.img" />
+			<img class="rounded-full" :src="agent.imgPath" />
 		</template>
 		<h2>{{ agent.name }}</h2>
-		<p>{{ agent.phone }}</p>
-		<p>{{ agent.email }}</p>
-		<p>{{ agent.desc }}</p>
+		<p>{{ agent.position }}</p>
+		<p v-if="agent.email">{{ agent.email }}</p>
+		<p v-if="agent.phone">{{ agent.phone }}</p>
+		<p v-if="agent.description">{{ agent.description }}</p>
 	</UCard>
 </template>
