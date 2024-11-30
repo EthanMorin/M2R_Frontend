@@ -1,5 +1,5 @@
 <script setup lang="ts">
-	const userStore = useUserStore();
+	// const userStore = useUserStore();
 </script>
 <template>
 	<div class="border-b">
@@ -19,13 +19,13 @@
 			<div class="flex items-center">
 				<ULink variant="link" to="/listings" class="mr-4">Listings</ULink>
 				<ULink variant="link" to="/contact" class="mr-4">Contact</ULink>
-				<template v-if="!userStore.isLoggedIn">
+				<!-- <template v-if="!userStore.isLoggedIn"> -->
 					<ULink variant="link" to="/login" class="mr-4">Login</ULink>
 					<UButton size="lg" to="/register" color="primary">Register</UButton>
-				</template>
-				<template v-else>
+				<!-- </template> -->
+				<!-- <template v-else>
 					<ULink variant="link" to="/user" class="mr-4">Profile</ULink>
-				</template>
+				</template> -->
 			</div>
 		</UContainer>
 	</div>

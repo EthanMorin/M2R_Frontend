@@ -86,7 +86,7 @@
 			<UFormField label="Your fullname" class="w-full" required>
 				<UInput
 					v-model="form.fullName"
-					placeholder="name@company.com"
+					placeholder="Your Full Name"
 					color="primary"
 					size="xl"
 					class="w-full bg-gray-50"

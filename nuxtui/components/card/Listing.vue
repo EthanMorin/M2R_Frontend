@@ -25,14 +25,18 @@
 					<div class="text-2xl font-bold">
 						${{ listing.listPrice.toLocaleString() }}
 					</div>
-					<div class="text-sm">
-						{{ listing.address.streetNumber }}
-						{{ listing.address.streetDirPrefix }}
-						{{ listing.address.streetName }}
-						{{ listing.address.streetSuffix }}
-						{{ listing.address.city }},
-						{{ listing.address.stateOrProvince }}
-						{{ listing.address.postalCode }}
+					<div class="text-sm flex flex-col justify-between h-8 mb-2">
+						<div>
+							{{ listing.address.streetNumber }}
+							{{ listing.address.streetDirPrefix }}
+							{{ listing.address.streetName }}
+							{{ listing.address.streetSuffix }}
+						</div>
+						<div>
+							{{ listing.address.city }},
+							{{ listing.address.stateOrProvince }}
+							{{ listing.address.postalCode }}
+						</div>
 					</div>
 				</div>
 				<div class="flex justify-center items-center">

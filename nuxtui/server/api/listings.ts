@@ -9,14 +9,21 @@ export default defineEventHandler(async (event) => {
         'Authorization': `Bearer ${config.realEstateApiKey}`
       }
     })
+
+    if (!response.ok) {
+      const errorText = await response.text()
+      console.log(`Error fetching listings: ${response.status} - ${errorText}`)
+      throw createError({
+        statusCode: response.status,
+        message: 'Failed to fetch listings'
+      })
+    }
+
     const data = await response.json()
-
-    // Transform the raw data using our transformer function
     const transformedListings = data.D.Results.map((listing: any) => transformListing(listing))
-
     return transformedListings
   } catch (error) {
-    console.log(error)
+    console.log('Error:', error)
     throw createError({
       statusCode: 500,
       message: 'Failed to fetch listings'
