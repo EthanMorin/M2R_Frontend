@@ -54,6 +54,9 @@ importers:
       '@iconify-json/lucide':
         specifier: ^1.2.15
         version: 1.2.15
+      '@iconify-json/material-symbols':
+        specifier: ^1.2.8
+        version: 1.2.8
       '@nuxt/eslint-config':
         specifier: ^0.5.7
         version: 0.5.7(eslint@9.14.0(jiti@2.4.0))(typescript@5.4.5)
@@ -810,6 +813,9 @@ packages:
 
   '@iconify-json/lucide@1.2.15':
     resolution: {integrity: sha512-mbHlTJRqOrqRk8E8xnpPzqZwCqsKNB9ZyITqDEYEtePEGxki9VJWJMU8JcNqRKDfPS9vlFsjwepUuOGgusmZUA==}
+
+  '@iconify-json/material-symbols@1.2.8':
+    resolution: {integrity: sha512-X89QwN5eRMVHEfm5HWMYCZxkUqUPQM2TNv7D8rIPUn2jTzDmgjgiTMomn3DOXWyh1/geHPnTt1bTSFcUXlpGbw==}
 
   '@iconify/collections@1.0.478':
     resolution: {integrity: sha512-qcjdK6fMB77zHqDwZ13l9Uww6MzYE2j/dGl39cmx7ot8DJDmvYLop+dU1Gleg7o6txl4060Yq3SAd57jxbjs3w==}
@@ -5807,6 +5813,10 @@ snapshots:
       '@iconify/types': 2.0.0
 
   '@iconify-json/lucide@1.2.15':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify-json/material-symbols@1.2.8':
     dependencies:
       '@iconify/types': 2.0.0
 

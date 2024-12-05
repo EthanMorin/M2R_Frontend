@@ -12,7 +12,7 @@
 					size="xl"
 					color="primary"
 					icon="material-symbols:search-rounded"
-					placeholder="search for listings"
+					placeholder="search for listings by address"
 					class="rounded-full w-96"
 				/>
 			</div>
