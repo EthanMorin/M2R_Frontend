@@ -3,10 +3,6 @@
 	const props = defineProps<{
 		listing: Listing;
 	}>();
-
-	// const formattedPrice = computed(
-	// 	() => `$${props.listing.listPrice.toLocaleString()}`
-	// );
 </script>
 <template>
 	<UCard class="relative h-[300px] w-full rounded-lg overflow-hidden shadow-lg">

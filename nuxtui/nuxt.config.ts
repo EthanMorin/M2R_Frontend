@@ -26,5 +26,10 @@ export default defineNuxtConfig({
     realEstateApiUri: process.env.REAL_ESTATE_API_URI,
     realEstateApiKey: process.env.REAL_ESTATE_API_KEY,
   },
+
+  routeRules: {
+    // Caches for one hour locally for the user
+    '/api/*': { cache: { maxAge: 60 * 60 } }
+  }
 })
 
