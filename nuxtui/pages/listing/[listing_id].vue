@@ -2,6 +2,7 @@
 	import type { Listing } from "~/types/listing";
 	const route = useRoute();
 	const listing = ref<Listing | null>(null);
+	const user = 
 	console.log(route.fullPath);
 	const {
 		status: listingStatus,
@@ -26,6 +27,7 @@
 			console.log(imgError.value);
 		}
 	});
+
 
 	// const firstUriLarge = imgData.D.Results[0]?.UriLarge;
 	// console.log(firstUriLarge);
@@ -53,7 +55,7 @@
 				<div>
 					<pre>{{}}</pre>
 					<!-- <UCarousel loop auto-scroll v-slot="{ item }" :items="imgData"> -->
-						<img :src="`${ imgData.D.Results[0].UriLarge }`" />
+						<img class="w-dvw" :src="`${ imgData.D.Results[0].UriLarge }`" />
 					<!-- </UCarousel> -->
 				</div>
 				<div class="flex flex-row">
