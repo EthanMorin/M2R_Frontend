@@ -3,15 +3,27 @@
 	const props = defineProps<{
 		listing: Listing;
 	}>();
+	const listingImg = ref<string | null>(null);
+	const {
+		status,
+		data: listingImgData,
+		error,
+	} = await useLazyFetch(`/api/listing/photo/${props.listing.id}`);
 </script>
 <template>
 	<UCard class="relative h-[300px] w-full rounded-lg overflow-hidden shadow-lg">
 		<div class="absolute inset-0 overflow-hidden">
-			<!-- <img
-				:src="listing.img"
-				:alt="listing.title"
+			<UIcon
+				v-if="status === 'pending'"
+				name="i-lucide-loader-2"
+				class="animate-spin mx-auto mb-4 size-12 text-primary-600"
+			/>
+			<img
+				v-if="status != 'pending' && listingImg != null"
+				:src="listingImg"
+				:alt="`${listing.address.streetNumber} ${listing.address.streetDirPrefix} ${listing.address.streetName} ${listing.address.streetSuffix}, ${listing.address.city}, ${listing.address.stateOrProvince} ${listing.address.postalCode}`"
 				class="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
-			/> -->
+			/>
 		</div>
 		<div
 			class="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/70 via-black/40 to-transparent text-white p-4 z-10"

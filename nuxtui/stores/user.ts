@@ -1,44 +1,39 @@
-import { defineStore } from 'pinia'
+import type { Database } from "~/types/database.types.js";
 
-interface UserState {
-  user: any | null
-  isLoggedIn: boolean
-  fullName: string | null
-}
+export const userProfileStore = defineStore("profile", () => {
+  const id = useCookie("id")
+  const fullname = useCookie("fullename")
 
-export const useUserStore = defineStore('user', {
-  state: (): UserState => ({
-    user: null,
-    isLoggedIn: false,
-    fullName: null
-  }),
+  async function signIn() {
+    clearUser();
+    const supabase = useSupabaseClient<Database>();
+    const user = useSupabaseUser();
 
-  actions: {
-    setUser(user: any) {
-      this.user = user
-      this.isLoggedIn = !!user
-      this.fullName = user?.user_metadata?.full_name || user?.email || 'User'
-    },
-
-    getUser() {
-      return this.user
-    },
-
-    clearUser() {
-      this.$reset()
-      this.$state = {
-        user: null,
-        isLoggedIn: false,
-        fullName: null
+    if (user.value) {
+      const { data, error } = await supabase.from("user").select('user_id, full_name').eq('id', user.value.id).single()
+      if (error) {
+        return;
       }
+      id.value = data.user_id
+      fullname.value = data.full_name
     }
-  },
+  }
 
-  getters: {
-    getUser: (state) => state.user,
-    getUserLoginStatus: (state) => state.isLoggedIn,
-    getUserName: (state) => state.fullName
-  },
+  function clearUser() {
+    id.value = ''
+    fullname.value = ''
+  }
 
-  persist: true
-}) 
+  async function signOut() {
+    const supabase = useSupabaseClient<Database>();
+    await supabase.auth.signOut();
+    clearUser();
+    navigateTo("/login")
+  }
+  return {
+    id,
+    fullname,
+    signIn,
+    signOut,
+  }
+})

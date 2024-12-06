@@ -212,14 +212,7 @@
 				<span class="px-3 text-gray-500 font-medium">or</span>
 				<hr class="w-full border-gray-300" />
 			</div>
-			<UButton
-				label="Sign in with Google"
-				icon="logos:google-icon"
-				color="neutral"
-				@click="signInWithGoogle()"
-				block
-				class="mb-5"
-			/>
+			<GoogleButton/>
 			<p class="text-sm font-light text-gray-500 dark:text-gray-400">
 				Already have an account?
 				<nuxt-link
