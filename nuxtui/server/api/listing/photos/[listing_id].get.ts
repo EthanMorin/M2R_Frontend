@@ -3,7 +3,7 @@ const config = useRuntimeConfig()
 
 export default defineEventHandler(async (event) => {
   try {
-    const response = await fetch(`${config.realEstateApiUri}/listings/${event.context.params?.listing_id}/photo`, {
+    const response = await fetch(`${config.realEstateApiUri}/listings/${event.context.params?.listing_id}/photos`, {
       headers: {
         'Authorization': `Bearer ${config.realEstateApiKey}`
       }

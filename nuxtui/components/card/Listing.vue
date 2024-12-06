@@ -3,24 +3,28 @@
 	const props = defineProps<{
 		listing: Listing;
 	}>();
-	const listingImg = ref<string | null>(null);
 	const {
-		status,
-		data: listingImgData,
-		error,
-	} = await useLazyFetch(`/api/listing/photo/${props.listing.id}`);
+		status: imgStatus,
+		data: imgData,
+		error: imgError,
+	} = await useLazyFetch(`/api/listing/photos/${props.listing.id}`);
+	watch(imgError, (newError) => {
+		if (imgError) {
+			console.log(imgError.value);
+		}
+	});
 </script>
 <template>
 	<UCard class="relative h-[300px] w-full rounded-lg overflow-hidden shadow-lg">
 		<div class="absolute inset-0 overflow-hidden">
 			<UIcon
-				v-if="status === 'pending'"
+				v-if="imgStatus === 'pending'"
 				name="i-lucide-loader-2"
 				class="animate-spin mx-auto mb-4 size-12 text-primary-600"
 			/>
 			<img
-				v-if="status != 'pending' && listingImg != null"
-				:src="listingImg"
+				v-if="imgStatus != 'pending'"
+				:src="`${imgData.D.Results[0].UriLarge}`"
 				:alt="`${listing.address.streetNumber} ${listing.address.streetDirPrefix} ${listing.address.streetName} ${listing.address.streetSuffix}, ${listing.address.city}, ${listing.address.stateOrProvince} ${listing.address.postalCode}`"
 				class="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
 			/>

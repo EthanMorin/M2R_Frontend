@@ -20,12 +20,15 @@
 		status: imgStatus,
 		data: imgData,
 		error: imgError,
-	} = await useLazyFetch(`/api/listing/${route.params.listing_id}`);
+	} = await useLazyFetch(`/api/listing/photos/${route.params.listing_id}`);
 	watch(imgError, (newError) => {
-		if (listingError) {
-			console.log(listingError.value);
+		if (imgError) {
+			console.log(imgError.value);
 		}
 	});
+
+	// const firstUriLarge = imgData.D.Results[0]?.UriLarge;
+	// console.log(firstUriLarge);
 </script>
 <template>
 	<Loading v-if="listingStatus === 'pending'" />
@@ -46,11 +49,12 @@
 				<p class="text-2xl font-bold mb-6">
 					${{ listing?.currentPrice.toLocaleString() }}
 				</p>
-        <!-- img carousel -->
+				<!-- img carousel -->
 				<div>
-					<UCarousel loop auto-scroll v-slot="{ item }" :items="imgData">
-						<img :src="item.resourceUri" />
-					</UCarousel>
+					<pre>{{}}</pre>
+					<!-- <UCarousel loop auto-scroll v-slot="{ item }" :items="imgData"> -->
+						<img :src="`${ imgData.D.Results[0].UriLarge }`" />
+					<!-- </UCarousel> -->
 				</div>
 				<div class="flex flex-row">
 					<div class="flex flex-col">
