@@ -8,8 +8,8 @@
 		data: listingData,
 		error,
 	} = await useLazyFetch(`/api/listing/${route.params.listing_id}`);
-	watch([listingData, error.value], ([newData, newError]) => {
-		if (newData && newData.length > 0) {
+	watch([listingData.value, error.value], ([newData, newError]) => {
+		if (newData && newData.length == 0) {
 			listing.value = newData[0];
 		}
 	});
