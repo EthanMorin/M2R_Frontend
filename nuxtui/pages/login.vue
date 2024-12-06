@@ -1,6 +1,5 @@
 <script setup lang="ts">
 	const supabase = useSupabaseClient();
-	const userStore = useUserStore();
 	const form = reactive({ email: "", password: "", remember: false });
 
 	const signInWithEmail = async () => {
@@ -14,7 +13,6 @@
 			return;
 		}
 
-		userStore.setUser(data.user);
 		navigateTo("/listings");
 	};
 

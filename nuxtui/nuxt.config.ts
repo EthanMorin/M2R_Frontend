@@ -29,7 +29,7 @@ export default defineNuxtConfig({
 
   routeRules: {
     // Caches for one hour locally for the user
-    '/api/*': { cache: { maxAge: 60 * 60 } }
+    '/api/*': { cache: { maxAge: 12 * 60 * 60 } }
   }
 })
 
