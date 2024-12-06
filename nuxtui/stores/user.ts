@@ -1,6 +1,6 @@
 import type { Database } from "~/types/database.types.js";
 
-export const userProfileStore = defineStore("profile", () => {
+export const useUserStore = defineStore("profile", () => {
   const id = useCookie("id")
   const fullname = useCookie("fullname")
   const favoritedListings = useCookie("favorited_listings")
